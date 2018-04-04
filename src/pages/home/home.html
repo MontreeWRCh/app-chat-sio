@@ -1,14 +1,17 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div class="center">
+    <ion-item>
+      <ion-label stacked>IP Socket</ion-label>
+      <ion-input type="text" [(ngModel)]="SocketUrl" placeholder="Socket.io URL"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Nickname</ion-label>
+      <ion-input type="text" (keyup.enter)="onEnter()" [(ngModel)]="nickname" placeholder="Nickname" ></ion-input>
+    </ion-item>
+    <button ion-button full (click)="joinChat()" [disabled]="nickname === ''">Join Chat as {{ nickname }}</button>
+    <p stacked [class.hide]="!connect">No connect!!</p>
+    <p stacked [class.hide]="!connect">chack IP Socket</p>
+    
+  </div>
 </ion-content>
